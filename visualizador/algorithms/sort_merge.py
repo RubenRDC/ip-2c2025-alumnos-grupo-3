@@ -3,6 +3,7 @@
 
 valores = []        # array real de números que llega desde la UI
 cantidad = 0        # cantidad de elementos
+valoresIniciales = []
 
 # pila de trabajo: (izq, der, fase) con fase en {"dividir", "mezclar"}
 pila = []
@@ -16,12 +17,11 @@ puntero_izq = puntero_der = 0
 rotando = False
 indice_rotacion = 0   # índice actual del swap adyacente que se está ejecutando
 
-
-def init(vals):
-    global valores, cantidad, pila, en_mezcla
+def startValues():
+    global valores, cantidad, pila, en_mezcla, valoresIniciales
     global izq, der, medio, puntero_izq, puntero_der, rotando, indice_rotacion
 
-    valores = list(vals)
+    valores = list(valoresIniciales)
     cantidad = len(valores)
 
     pila = []
@@ -34,6 +34,10 @@ def init(vals):
     rotando = False
     indice_rotacion = 0
 
+def init(vals):
+    global valoresIniciales
+    valoresIniciales = vals
+    startValues()
 
 def step():
     """

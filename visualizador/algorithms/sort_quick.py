@@ -21,18 +21,19 @@ indice_pivote = 0               # índice donde está el pivote
 valor_pivote = None             # valor del pivote (para comparar)
 pos_menores = 0                 # puntero 'i' del esquema de Lomuto
 explorador = 0                  # puntero 'j' del esquema de Lomuto
-
+valoresIniciales = []
 
 ###############################################################
 # init(vals): inicializa todos los estados antes de ordenar
 ###############################################################
-def init(vals):
-    global valores, cantidad, pila
+
+def startValues():
+    global valores, cantidad, pila, valoresIniciales
     global en_particion, izq, der, indice_pivote, valor_pivote
     global pos_menores, explorador
 
     # Copiamos los valores desde la UI
-    valores = list(vals)
+    valores = list(valoresIniciales)
     cantidad = len(valores)
 
     # Si hay más de 1 elemento, agregamos el intervalo total
@@ -45,6 +46,10 @@ def init(vals):
     izq = der = indice_pivote = pos_menores = explorador = 0
     valor_pivote = None
 
+def init(vals):
+    global valoresIniciales
+    valoresIniciales = vals
+    startValues()
 
 ###############################################################
 # step(): ejecuta un micro-paso del algoritmo

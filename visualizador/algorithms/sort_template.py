@@ -3,13 +3,19 @@
 
 items = []
 n = 0
+valoresIniciales = []
 # Agregá acá tus punteros/estado, p.ej.:
 # i = 0; j = 0; fase = "x"; stack = []
 
-def init(vals):
-    global items, n
-    items = list(vals)
+def startValues():
+    global items, n, valoresIniciales
+    items = list(valoresIniciales)
     n = len(items)
+
+def init(vals):
+    global valoresIniciales
+    valoresIniciales = vals
+    startValues()
     # TODO: inicializar punteros/estado
 
 def step():
@@ -19,3 +25,4 @@ def step():
     # - si swap=True, primero hacé el intercambio en 'items'
     # - cuando termines, devolvé {"done": True}
     return {"done": True}
+

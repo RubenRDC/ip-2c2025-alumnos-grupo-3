@@ -4,13 +4,19 @@ items = []
 n = 0
 i = 0
 j = 0
+valoresIniciales = []
 
-def init(vals):
-    global items, n, i, j
-    items = list(vals)
+def startValues():
+    global items, n, i, j, valoresIniciales
+    items = list(valoresIniciales)
     n = len(items)
     i = 0
     j = 0
+
+def init(vals):
+    global valoresIniciales
+    valoresIniciales = vals
+    startValues()
 
 def step():
     # TODO:

@@ -4,13 +4,19 @@ items = []
 n = 0
 i = 0      # elemento que queremos insertar
 j = None   # cursor de desplazamiento hacia la izquierda (None = empezar)
+valoresIniciales = []
 
-def init(vals):
-    global items, n, i, j
-    items = list(vals)
+def startValues():
+    global items, n, i, j, valoresIniciales
+    items = list(valoresIniciales)
     n = len(items)
     i = 1      # común: arrancar en el segundo elemento
     j = None
+
+def init(vals):
+    global valoresIniciales
+    valoresIniciales = vals
+    startValues()
 
 def step():
     # TODO:
